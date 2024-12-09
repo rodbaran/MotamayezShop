@@ -5,9 +5,14 @@ namespace MT.Shop.Domain.Orders;
 
 public class OrderDetail : BaseEntity<int>
 {
-    public OrderDetail()
+    public OrderDetail(Product product, int quantity) : base()
     {
-        
+        Product = product ?? throw new ArgumentNullException(nameof(product));
+        ProductId = product.Id;
+        UnitPrice = product.Price;
+        Quantity = quantity;
+
+        product.ReduceStock(quantity);
     }
     public int OrderId { get; set; }
     public int ProductId { get; set; }
@@ -18,15 +23,6 @@ public class OrderDetail : BaseEntity<int>
 
     public decimal TotalPrice => Quantity * UnitPrice;
 
-    public OrderDetail(Product product, int quantity)
-    {
-        Product = product ?? throw new ArgumentNullException(nameof(product));
-        ProductId = product.Id;
-        UnitPrice = product.Price;
-        Quantity = quantity;
-
-        product.ReduceStock(quantity);
-    }
 
     public void UpdateQuantity(int quantity)
     {

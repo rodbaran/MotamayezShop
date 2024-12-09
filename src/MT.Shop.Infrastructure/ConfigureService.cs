@@ -1,10 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MT.Shop.Domain.Helper;
+using MT.Shop.Domain.BaseInfo;
+using MT.Shop.Domain.Orders;
+using MT.Shop.Domain.Products;
+using MT.Shop.Infrastructure.DataService.BaseInfo;
+using MT.Shop.Infrastructure.DataService.Orders;
+using MT.Shop.Infrastructure.DataService.Product;
 using MT.Shop.Infrastructure.DBContext;
-using MT.Shop.Infrastructure.Helper;
 using MT.Shop.Infrastructure.UnitOfWorks;
 
 
@@ -21,6 +24,12 @@ public static class ConfigureService
 
         // services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IOrderService, OrderService>();
+        services.AddScoped<IUserService , UserService>();
+        services.AddScoped<IProductService, ProductService>();
+
         return services;
     }
 }

@@ -9,17 +9,13 @@ namespace MT.Shop.Domain.Orders;
 /// </summary>
 public class Order : BaseEntity<int>
 {
-    public Order()
-    {
-        
-    }
-    public Order(int userId , List<OrderDetail> orderDetails)
+    public Order(int userId , List<OrderDetail> orderDetails) : base()
     {
         UserId = userId;
         orderDetails = OrderDetails;
     }
     public  int UserId { get; private set; }
-    public User User { get;  set; }
+    public required User User { get;  set; }
 
     public OrderStatus Status { get; private set; } = OrderStatus.Draft;
     public List<OrderDetail> OrderDetails { get; private set; } = new();

@@ -1,12 +1,9 @@
 ﻿using MT.Shop.Domain.BaseEntities;
 
-
 namespace MT.Shop.Domain.BaseInfo;
-
-
 public class User : BaseEntity<int>
 {
-    public User(string firstName, string lastName, string phoneNumber, string email, string address)
+    public User(string firstName, string lastName, string phoneNumber, string email, string address) : base()
     {
         FirstName = firstName;
         LastName = lastName;

@@ -13,7 +13,7 @@ public class Product : SimpleEntity<int>
 
 
 
-    public Product(string code, string name, decimal price, int availableStock)
+    public Product(string code, string name, decimal price, int availableStock):base()
     {
         Code = code;
         Name = name;

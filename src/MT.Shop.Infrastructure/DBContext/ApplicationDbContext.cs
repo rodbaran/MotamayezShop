@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MT.Shop.Domain.BaseInfo;
 using MT.Shop.Domain.Orders;
 using MT.Shop.Domain.Products;
 using System.Reflection;
@@ -12,6 +13,7 @@ public class ApplicationDbContext : DbContext
 
     }
 
+    public DbSet<User> Users { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
     public DbSet<Product> Products { get; set; }
