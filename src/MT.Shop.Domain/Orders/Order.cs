@@ -1,7 +1,7 @@
 ﻿using MT.Shop.Domain.BaseEntities;
-using MT.Shop.Domain.BaseInfo;
 using MT.Shop.Domain.Enums;
 using MT.Shop.Domain.Products;
+using MT.Shop.Domain.Users;
 
 namespace MT.Shop.Domain.Orders;
 /// <summary>
@@ -16,10 +16,13 @@ public class Order : BaseEntity<int>
     public Order(int userId , List<OrderDetail> orderDetails) : base()
     {
         UserId = userId;
-        orderDetails = OrderDetails;
+        CreatedOn = DateTime.Now;
+        CreatedBy = userId;
+        Status = OrderStatus.Confirmed;
+        orderDetails = OrderDetails.Select( d => new OrderDetail(d.Product , d.Quantity)).ToList();
     }
     public  int UserId { get; private set; }
-    public required User User { get;  set; }
+    public  User User { get;  set; }
 
     public OrderStatus Status { get; private set; } = OrderStatus.Draft;
     public List<OrderDetail> OrderDetails { get; private set; } = new();

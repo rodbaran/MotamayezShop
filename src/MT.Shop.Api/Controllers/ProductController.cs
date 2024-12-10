@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MT.Shop.Application.Products.Queries.GerAll;
-using MT.Shop.Application.Products.Queries.Get;
-using MT.Shop.Application.Products.Queries.Page;
+using MT.Shop.Application.Features.Products.Queries.Get;
+using MT.Shop.Application.Features.Products.Queries.List;
+using MT.Shop.Application.Features.Products.Queries.Page;
 using MT.Shop.Domain.Helper.Types;
 using MT.Shop.Domain.Products.Dto;
 

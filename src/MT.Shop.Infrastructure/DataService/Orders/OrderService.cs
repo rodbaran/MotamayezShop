@@ -5,7 +5,7 @@ using MT.Shop.Infrastructure.DBContext;
 
 namespace MT.Shop.Infrastructure.DataService.Orders;
 
-public class OrderService : IOrderService
+public sealed class OrderService : IOrderService
 {
     private readonly ApplicationDbContext _dbContext;
 

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MT.Shop.Domain.BaseInfo;
+
 using MT.Shop.Domain.Products;
 using MT.Shop.Infrastructure.DBContext;
 using System;
@@ -27,14 +27,16 @@ public class ProductRepository : IProductRepository
 
     public async void DeleteAsync(Product product, CancellationToken cancellationToken)
     {
-        var record = await GetByIdAsync(product.Id, cancellationToken);
+        var record = await GetByIdAsync(product.Id);
         record.IsDelete = true;
         await UpdateAsync(product);
     }
 
-    public async Task<Product> GetByIdAsync(int id, CancellationToken cancellationToken)
-        => await _dbContext.Products.FirstOrDefaultAsync(x => x.Id == id, cancellationToken)
+    public async Task<Product> GetByIdAsync(int id)
+        => await _dbContext.Products.FirstOrDefaultAsync(x => x.Id == id)
             ?? throw new Exception("رکوردی یافت نشد ");
+
+
 
     public async Task UpdateAsync(Product product)
     => await Task.Run(() => _dbContext.Update(product));

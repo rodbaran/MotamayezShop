@@ -23,10 +23,6 @@ public class Product : SimpleEntity<int>
 
     public void ReduceStock(int quantity)
     {
-        if (quantity > AvailableStock)
-        {
-            throw new InvalidOperationException("Not enough stock available.");
-        }
         AvailableStock -= quantity;
     }
 

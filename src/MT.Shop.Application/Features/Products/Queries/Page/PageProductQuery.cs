@@ -7,6 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-namespace MT.Shop.Application.Products.Queries.Page;
+namespace MT.Shop.Application.Features.Products.Queries.Page;
 
-public class PageProductsQuery : PagedQueryBase , IRequest<PagedResult<ProductDto>>;
+public class PageProductsQuery : PagedQueryBase, IRequest<PagedResult<ProductDto>>;

@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MT.Shop.Domain.BaseInfo;
-using MT.Shop.Domain.BaseInfo.Dto;
+using MT.Shop.Domain.Users;
+using MT.Shop.Domain.Users.Dto;
 using MT.Shop.Infrastructure.DBContext;
 
 
-namespace MT.Shop.Infrastructure.DataService.BaseInfo;
+namespace MT.Shop.Infrastructure.DataService.Users;
 
 public class UserService : IUserService
 {

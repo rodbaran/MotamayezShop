@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MT.Shop.Domain.BaseInfo;
 using MT.Shop.Domain.Orders;
 using MT.Shop.Domain.Products;
+using MT.Shop.Domain.Users;
 using System.Reflection;
 
 namespace MT.Shop.Infrastructure.DBContext;
@@ -28,6 +28,9 @@ public class ApplicationDbContext : DbContext
 
         //modelBuilder.ApplyConfiguration(new OrderEntityTypeConfiguration());
     }
+
+
+    
 }
 
 

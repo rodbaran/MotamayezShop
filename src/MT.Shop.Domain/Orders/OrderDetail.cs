@@ -15,8 +15,6 @@ public class OrderDetail : BaseEntity<int>
         ProductId = product.Id;
         UnitPrice = product.Price;
         Quantity = quantity;
-
-        product.ReduceStock(quantity);
     }
     public int OrderId { get; set; }
     public int ProductId { get; set; }

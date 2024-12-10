@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MT.Shop.Domain.BaseInfo;
+using MT.Shop.Application.Contracts;
 using MT.Shop.Domain.Orders;
 using MT.Shop.Domain.Products;
-using MT.Shop.Infrastructure.DataService.BaseInfo;
+using MT.Shop.Domain.Users;
 using MT.Shop.Infrastructure.DataService.Orders;
 using MT.Shop.Infrastructure.DataService.Products;
+using MT.Shop.Infrastructure.DataService.Users;
 using MT.Shop.Infrastructure.DBContext;
 using MT.Shop.Infrastructure.UnitOfWorks;
 

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MT.Shop.Domain.BaseInfo;
+using MT.Shop.Domain.Users;
 using MT.Shop.Infrastructure.DBContext;
 
-namespace MT.Shop.Infrastructure.EFRepositories.BaseInfo;
+namespace MT.Shop.Infrastructure.EFRepositories.Users;
 
 public class UserRepository : IUserRepository
 {
@@ -15,17 +15,17 @@ public class UserRepository : IUserRepository
 
     public async Task AddAsync(User user, CancellationToken cancellationToken)
         => await _dbContext.AddAsync(user, cancellationToken);
-    
+
 
     public async Task<bool> AnyAsync(int id, CancellationToken cancellationToken)
-        => await _dbContext.Users.AnyAsync(x=> x.Id == id, cancellationToken);
-    
+        => await _dbContext.Users.AnyAsync(x => x.Id == id, cancellationToken);
+
 
     public async Task<User> GetByIdAsync(int id, CancellationToken cancellationToken)
-        =>  await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == id, cancellationToken) 
+        => await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == id, cancellationToken)
             ?? throw new Exception("رکوردی یافت نشد ");
 
-    
+
     public async void DeleteAsync(User user, CancellationToken cancellationToken)
     {
         var record = await GetByIdAsync(user.Id, cancellationToken);

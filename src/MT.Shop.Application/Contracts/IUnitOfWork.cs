@@ -1,11 +1,11 @@
 ﻿using MT.Shop.Domain.BaseEntities;
-using MT.Shop.Domain.BaseInfo;
 using MT.Shop.Domain.Helper;
 using MT.Shop.Domain.Orders;
 using MT.Shop.Domain.Products;
+using MT.Shop.Domain.Users;
 
 
-namespace MT.Shop.Infrastructure.UnitOfWorks;
+namespace MT.Shop.Application.Contracts;
 
 public interface IUnitOfWork : IDisposable
 {

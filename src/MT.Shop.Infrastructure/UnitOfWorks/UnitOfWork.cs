@@ -1,15 +1,16 @@
-﻿using MT.Shop.Domain.BaseInfo;
+﻿using MT.Shop.Application.Contracts;
 using MT.Shop.Domain.Orders;
 using MT.Shop.Domain.Products;
+using MT.Shop.Domain.Users;
 using MT.Shop.Infrastructure.DBContext;
-using MT.Shop.Infrastructure.EFRepositories.BaseInfo;
 using MT.Shop.Infrastructure.EFRepositories.Orders;
 using MT.Shop.Infrastructure.EFRepositories.Products;
+using MT.Shop.Infrastructure.EFRepositories.Users;
 
 
 namespace MT.Shop.Infrastructure.UnitOfWorks;
 
-public class UnitOfWork : IUnitOfWork
+public sealed class UnitOfWork : IUnitOfWork
 {
 
     private readonly ApplicationDbContext _dbContext;
@@ -87,5 +88,6 @@ public class UnitOfWork : IUnitOfWork
     //    return new GenericRepository<T>(_dbContext);
     //}
 
-
+   
 }
+

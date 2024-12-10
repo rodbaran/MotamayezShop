@@ -1,6 +1,6 @@
 ﻿using MT.Shop.Domain.BaseEntities;
 
-namespace MT.Shop.Domain.BaseInfo;
+namespace MT.Shop.Domain.Users;
 public class User : BaseEntity<int>
 {
     public User(string firstName, string lastName, string phoneNumber, string email, string address) : base()
@@ -15,7 +15,7 @@ public class User : BaseEntity<int>
     public string LastName { get; private set; }
     public string PhoneNumber { get; private set; }
     public string Email { get; private set; }
-    public string Address {  get; private set; }
+    public string Address { get; private set; }
 
-  
+
 }

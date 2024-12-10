@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MT.Shop.Domain.BaseInfo;
+using MT.Shop.Domain.Users;
 
-namespace MT.Shop.Infrastructure.EntityConfigurations.BaseInfo;
+namespace MT.Shop.Infrastructure.EntityConfigurations.Users;
 
 public class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
 {

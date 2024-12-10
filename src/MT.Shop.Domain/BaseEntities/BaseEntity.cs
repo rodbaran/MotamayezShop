@@ -8,7 +8,7 @@ public abstract class BaseEntity<T> : IIdentifiable<T>
     // کنترل هم‌زمانی
     public byte[] VersionCtrl { get; protected set; }
 
-    public DateTime CreatedOn { get; protected set; }
+    public DateTime CreatedOn { get; protected set; } = DateTime.Now;
     public int CreatedBy { get; protected set; }
     public DateTime? ModifiedOn { get; protected set; }
     public int? ModifiedBy { get; protected set; }

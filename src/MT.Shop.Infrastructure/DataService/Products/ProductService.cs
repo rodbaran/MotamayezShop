@@ -8,7 +8,7 @@ using MT.Shop.Infrastructure.DBContext;
 
 namespace MT.Shop.Infrastructure.DataService.Products;
 
-public class ProductService : IProductService
+public sealed class ProductService : IProductService
 {
     private readonly ApplicationDbContext _dbContext;
 

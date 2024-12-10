@@ -1,6 +1,6 @@
-﻿using MT.Shop.Domain.BaseInfo.Dto;
+﻿using MT.Shop.Domain.Users.Dto;
 
-namespace MT.Shop.Domain.BaseInfo;
+namespace MT.Shop.Domain.Users;
 
 public interface IUserService
 {
