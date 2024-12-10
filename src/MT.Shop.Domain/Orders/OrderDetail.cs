@@ -5,6 +5,10 @@ namespace MT.Shop.Domain.Orders;
 
 public class OrderDetail : BaseEntity<int>
 {
+    public OrderDetail()
+    {
+        
+    }
     public OrderDetail(Product product, int quantity) : base()
     {
         Product = product ?? throw new ArgumentNullException(nameof(product));

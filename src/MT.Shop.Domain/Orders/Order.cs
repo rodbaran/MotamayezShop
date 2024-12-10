@@ -9,6 +9,10 @@ namespace MT.Shop.Domain.Orders;
 /// </summary>
 public class Order : BaseEntity<int>
 {
+    public Order()
+    {
+        
+    }
     public Order(int userId , List<OrderDetail> orderDetails) : base()
     {
         UserId = userId;

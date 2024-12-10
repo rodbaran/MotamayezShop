@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MT.Shop.Domain.Exceptions;
 using MT.Shop.Domain.Products;
 using MT.Shop.Domain.Products.Dto;
 using MT.Shop.Infrastructure.DBContext;
@@ -14,7 +15,7 @@ public class ProductService : IProductService
         _dbContext = dbContext;
     }
 
-    public async Task<List<ProductDto>> GetAll()
+    public async Task<List<ProductDto>> GetListAsync()
     {
         var lst = await _dbContext.Products
             .AsNoTracking()
@@ -30,7 +31,7 @@ public class ProductService : IProductService
             .Select (x => new ProductDto(x))
             .FirstOrDefaultAsync();
 
-        return item ?? throw new Exception("رکوردی با این شناسه وجود ندارد");
+        return item ?? throw new NotFoundEntityException();
     }
 
     public async Task<List<ProductDto>> GetByName(string name)

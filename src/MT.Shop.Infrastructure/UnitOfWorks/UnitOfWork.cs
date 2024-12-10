@@ -1,13 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MT.Shop.Domain.BaseEntities;
-using MT.Shop.Domain.BaseInfo;
-using MT.Shop.Domain.Helper;
+﻿using MT.Shop.Domain.BaseInfo;
 using MT.Shop.Domain.Orders;
 using MT.Shop.Domain.Products;
 using MT.Shop.Infrastructure.DBContext;
 using MT.Shop.Infrastructure.EFRepositories.BaseInfo;
 using MT.Shop.Infrastructure.EFRepositories.Orders;
-using MT.Shop.Infrastructure.Helper;
+using MT.Shop.Infrastructure.EFRepositories.Products;
+
 
 namespace MT.Shop.Infrastructure.UnitOfWorks;
 
@@ -25,9 +23,9 @@ public class UnitOfWork : IUnitOfWork
     }
 
 
-    private  IUserRepository _userRepo;
-    private  IProductRepository _productRepo;
-    private  IOrderRepository _orderRepo;
+    private  IUserRepository? _userRepo;
+    private  IProductRepository? _productRepo;
+    private  IOrderRepository? _orderRepo;
 
     public IUserRepository UserRepo 
     {
@@ -40,7 +38,7 @@ public class UnitOfWork : IUnitOfWork
 
     }
 
-    public IOrderRepository OrderRepository
+    public IOrderRepository OrderRepo
     {
         get
         {
@@ -50,7 +48,7 @@ public class UnitOfWork : IUnitOfWork
         }
     }
 
-    public IProductRepository ProductRepository
+    public IProductRepository ProductRepo
     {
         get
         {
@@ -60,24 +58,9 @@ public class UnitOfWork : IUnitOfWork
         }
     }
 
-
-    public IProductRepository ProductRepo => throw new NotImplementedException();
-
-    public IOrderRepository OrderRepo => throw new NotImplementedException();
-
-
-
-
-
-
-
-
-
-
-
-    public Task CommitAsync(CancellationToken cancellationToken)
+    public async Task CommitAsync(CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await _dbContext.SaveChangesAsync();
     }
 
     public void Dispose()
